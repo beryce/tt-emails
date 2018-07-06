@@ -6,7 +6,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import readtext
-<<<<<<< HEAD
 import pandas as pd
 import sqlite3
 
@@ -44,9 +43,6 @@ import sqlite3
 # df = pd.DataFrame(data=d, index=[0])
 # print df
 
-=======
->>>>>>> d166ea1baa2fde4a4364e2399f59424411cd9935
-
 def keywordsBar(textFile):
     '''Returns a bar chart of the top keywords.'''
     
@@ -54,23 +50,20 @@ def keywordsBar(textFile):
     keywords = readtext.getKeyFreq(textFile).keys()
     values = readtext.getKeyFreq(textFile).values()
     
-<<<<<<< HEAD
     date = readtext.getDates(textFile)
     month, year = date[0].split(' ')[0], date[0].split(' ')[-1]
-    
-=======
->>>>>>> d166ea1baa2fde4a4364e2399f59424411cd9935
+
     # unsure what this does -- ask
     position = np.arange(len(values))
     
     # creating the bar graph    
     plt.barh(position,values,0.5,align='center')
     plt.yticks(position,keywords)
-<<<<<<< HEAD
+
     plt.title('Top Keywords in ' + month + ' ' + year)
-=======
+
     plt.title('Top Keywords in June')
->>>>>>> d166ea1baa2fde4a4364e2399f59424411cd9935
+
     plt.xlabel('Frequency')
     plt.ylabel('Keywords')
     
@@ -79,9 +72,7 @@ def keywordsBar(textFile):
         plt.text(v + .10, i, str(v), color='black', fontweight='bold')
     
     plt.show()
-<<<<<<< HEAD
-    
-    print month, year
+
 
 def hashtagTable(textFile):
     '''Returns a table of hashtags and their frequencies.'''
@@ -96,15 +87,7 @@ def hashtagTable(textFile):
     frame.style.set_properties(**{'text-align': 'left'})
     
     return frame
-    
-print hashtagTable('June18.txt')
 
-
-    
-    
-
-
-=======
 
 def unigramsBar(textFile):
     '''Returns a bar chart of the top ten unigrams.'''
@@ -113,7 +96,4 @@ def unigramsBar(textFile):
     return unigrams
     
 
-    
-print unigramsBar('June18.txt')
-# print(readtext.getKeywords("June18.txt"))
->>>>>>> d166ea1baa2fde4a4364e2399f59424411cd9935
+
