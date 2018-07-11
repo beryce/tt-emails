@@ -39,7 +39,7 @@ def getKeywords(textFile):
         
         return keywordList
 
-def getKeyFreq(textFile):
+def getKeywordDict(textFile):
     '''Returns a dictionary of all keywords as keys and their frequencies
     as values.'''
     
@@ -117,7 +117,34 @@ def getHashtagDict(textFile):
                 hashtagDict[hashtag] += frequency
         
         return hashtagDict
-    
-print getHashtagDict('June18.txt')
 
-#test
+def hashtagFormat(hashtagDict):
+    '''Turns hashtag dictionary into a list of dictionaries with
+    hashtag and frequency as keys.'''
+    
+    hashtagList = []
+    
+    for hashtag in hashtagDict:
+        dictionary = dict()
+        dictionary["hashtag"] = hashtag
+        dictionary["frequency"] = hashtagDict[hashtag]
+        hashtagList.append(dictionary)
+    
+    return hashtagList
+
+def keywordFormat(keywordDict):
+    '''Turns keyword dictionary into a formatted JSON.'''
+    
+    keywordList = []
+    
+    for keyword in keywordDict:
+        dictionary = dict()
+        dictionary["keyword"] = keyword
+        dictionary["frequency"] = keywordDict[keyword]
+        keywordList.append(dictionary)
+    
+    return keywordList
+        
+    
+    
+print keywordFormat(getKeywordDict('April18.txt'))
